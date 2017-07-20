@@ -10,12 +10,13 @@ export class AuthenticationService {
     login(username: string, password: string) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:4040/api/auth/login', JSON.stringify({ username: username, password: password }), { headers: headers })
+        return this.http.post('http://localhost:3000/auth/login', JSON.stringify({ email: username, password: password }), { headers: headers })
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 let user = response.json();
-                if (user && user.token) {
+                if (user && response.status == 200 && response.headers.get('token')) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
+                    user.token = response.headers.get('token');
                     localStorage.setItem('currentUser', JSON.stringify(user));
                 }
             });
