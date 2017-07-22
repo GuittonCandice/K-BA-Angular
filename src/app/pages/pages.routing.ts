@@ -15,16 +15,11 @@ export const routes: Routes = [
     path: 'pages',
     component: Pages,
     children: [
-      { path: '', redirectTo: 'servers', pathMatch: 'full', canActivate: [AuthGuard] },
-      { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule', canActivate: [AuthGuard]  },
-      { path: 'servers', loadChildren: './servers/servers.module#ServersModule', canActivate: [AuthGuard]  },
-      { path: 'editors', loadChildren: './editors/editors.module#EditorsModule' },
-      { path: 'components', loadChildren: './components/components.module#ComponentsModule' },
-      { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
-      { path: 'ui', loadChildren: './ui/ui.module#UiModule' },
-      { path: 'forms', loadChildren: './forms/forms.module#FormsModule' },
-      { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
-      { path: 'maps', loadChildren: './maps/maps.module#MapsModule' }
+      { path: '', redirectTo: 'products', pathMatch: 'full', canActivate: [AuthGuard] },
+      { path: 'products', loadChildren: './products/products.module#ProductsModule', canActivate: [AuthGuard]  },
+      { path: 'categories', loadChildren: './categories/categories.module#CategoriesModule', canActivate: [AuthGuard]  },
+      { path: 'groups', loadChildren: './groups/groups.module#GroupsModule', canActivate: [AuthGuard]  },
+      { path: 'users', loadChildren: './users/users.module#UsersModule', canActivate: [AuthGuard]  },
     ]
   }
 ];

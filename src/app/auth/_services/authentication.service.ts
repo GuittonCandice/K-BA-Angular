@@ -10,7 +10,7 @@ export class AuthenticationService {
     login(username: string, password: string) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3000/auth/login', JSON.stringify({ email: username, password: password }), { headers: headers })
+        return this.http.post('http://51.255.196.182:3000/auth/login', JSON.stringify({ email: username, password: password }), { headers: headers })
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 let user = response.json();
