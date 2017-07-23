@@ -29,7 +29,7 @@
                 <td>{{ item.manufacturer }}</td>
                 <td>
                   <button type="button" class="btn btn-primary btn-with-icon" [routerLink]="['/pages/products/edit', item.uid]"><i class="ion-compose"></i>Edit</button>
-                  <button type="button" class="btn btn-primary btn-with-icon" [routerLink]="['/pages/products/categories', item.uid]"><i class="ion-compose"></i>Edit</button>
+                  <button type="button" class="btn btn-success btn-with-icon" [routerLink]="['/pages/products/categories', item.uid]">Categories</button>
                   <button type="button" class="btn btn-danger btn-with-icon" (click)="delete(item.uid)"><i class="ion-compose"></i>Delete</button>
                 </td>
               </tr>

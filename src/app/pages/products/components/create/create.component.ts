@@ -22,10 +22,13 @@ export class Create {
 
   ngOnInit() {
      this._productsService.getCategoryData()
-        .then(
-          data => {
-              this.category = data;
-      });
+        .subscribe(
+        data => {
+            this.category = data;
+        },
+        error => {
+            console.log(error);
+        });
 	}
 
 	onSubmit() {

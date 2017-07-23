@@ -16,7 +16,7 @@ const routes: Routes = [
       { path: 'list', component: List },
       { path: 'edit/:id', component: Edit },
       { path: 'create', component: Create },
-      { path: 'categories/:item/:category', component: Categories },
+      { path: 'categories/:id', component: Categories },
     ]
   }
 ];

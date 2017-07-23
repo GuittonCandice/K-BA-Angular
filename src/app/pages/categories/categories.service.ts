@@ -18,24 +18,16 @@ export class CategoriesService {
         return this.http.get('http://51.255.196.182:3000/category/' + id, this.jwt()).map((response: Response) => response.json());
     }
 
-    refresh(id: string) {
-        return this.http.get('http://localhost:4040/api/servers/refresh/' + id, this.jwt()).map((response: Response) => response.json());
-    }
-
-    version(id: string) {
-        return this.http.get('http://localhost:4040/api/servers/version/' + id, this.jwt()).map((response: Response) => response.json());
-    }
-
     create(category: Category) {
-        return this.http.post('http://51.255.196.182:3000/item', category, this.jwt()).map((response: Response) => response.json());
+        return this.http.post('http://51.255.196.182:3000/category', category, this.jwt()).map((response: Response) => response.json());
     }
 
     update(category: Category) {
-        return this.http.put('http://51.255.196.182:3000/item/' + category.uid, category, this.jwt()).map((response: Response) => response.json());
+        return this.http.put('http://51.255.196.182:3000/category/' + category.uid, category, this.jwt()).map((response: Response) => response.json());
     }
 
     delete(id: number) {
-        return this.http.delete('http://51.255.196.182:3000/item/' + id, this.jwt()).map((response: Response) => response.json());
+        return this.http.delete('http://51.255.196.182:3000/category/' + id, this.jwt()).map((response: Response) => response.json());
     }
 
     // private helper methods

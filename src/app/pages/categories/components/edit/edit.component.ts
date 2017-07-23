@@ -20,7 +20,6 @@ export class Edit {
   }
 
   ngOnInit() {
-  	//console.log(this._categoriesService.getAll());
 
     this.route.params.subscribe(params => {
       this.productId = params['id'];

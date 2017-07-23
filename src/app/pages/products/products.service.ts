@@ -8,87 +8,6 @@ import { Product } from './_models/index';
 export class ProductsService {
     constructor(private http: Http) { }
 
-
-    productsData = [{
-        'uid': '23554654235325',
-        'name': 'Product 1',
-        'description': 'Description 1',
-        'price': '23.23',
-        'manufacturer': "Manufaturer 1",
-        'created_at': 2017-12-13,
-        'updated_at': 2017-12-13,
-        'deleted_at': 2017-12-13
-    },
-    {
-        'uid': '564734563',
-        'name': 'Product 2',
-        'description': 'Description 2',
-        'price': '52.23',
-        'manufacturer': "Manufaturer 2",
-        'created_at': 2017-12-13,
-        'updated_at': 2017-12-13,
-        'deleted_at': 2017-12-13
-    },
-    {
-        'uid': '67543345',
-        'name': 'Product 3',
-        'description': 'Description 3',
-        'price': '412.23',
-        'manufacturer': "Manufaturer 3",
-        'created_at': 2017-12-13,
-        'updated_at': 2017-12-13,
-        'deleted_at': 2017-12-13
-    }];
-
-    getData(): Promise<any> {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve(this.productsData);
-          }, 1);
-        });
-    }
-
-    getOne(): Promise<any> {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve(this.productsData[0]);
-          }, 1);
-        });
-    }
-
-
-    categoryData = [{
-        'uid': '23554654235325',
-        'name': 'Category 1',
-        'created_at': 2017-12-13,
-        'updated_at': 2017-12-13,
-        'deleted_at': 2017-12-13
-    },
-    {
-        'uid': '564734563',
-        'name': 'Category 2',
-        'created_at': 2017-12-13,
-        'updated_at': 2017-12-13,
-        'deleted_at': 2017-12-13
-    },
-    {
-        'uid': '67543345',
-        'name': 'Category 3',
-        'created_at': 2017-12-13,
-        'updated_at': 2017-12-13,
-        'deleted_at': 2017-12-13
-    }];
-
-
-     getCategoryData(): Promise<any> {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve(this.categoryData);
-          }, 1);
-        });
-    }
-
-
     getAll() {
         return this.http.get('http://51.255.196.182:3000/item', this.jwt()).map((response: Response) => response.json());
     }
@@ -101,12 +20,12 @@ export class ProductsService {
         return this.http.get('http://51.255.196.182:3000/item/category/' + id, this.jwt()).map((response: Response) => response.json());
     }
 
-    refresh(id: string) {
-        return this.http.get('http://localhost:4040/api/servers/refresh/' + id, this.jwt()).map((response: Response) => response.json());
+    getCategoryData() {
+        return this.http.get('http://51.255.196.182:3000/category', this.jwt()).map((response: Response) => response.json());
     }
 
-    version(id: string) {
-        return this.http.get('http://localhost:4040/api/servers/version/' + id, this.jwt()).map((response: Response) => response.json());
+    addCategory(itemId: number, categoryId: number) {
+        return this.http.put('http://51.255.196.182:3000/item/' + itemId + '/category/' + categoryId, this.jwt()).map((response: Response) => response.json());
     }
 
     create(product: Product) {

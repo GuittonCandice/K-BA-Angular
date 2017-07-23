@@ -22,8 +22,6 @@ export class Edit {
   }
 
   ngOnInit() {
-  	//console.log(this._productsService.getAll());
-
     this.route.params.subscribe(params => {
       this.productId = params['id'];
       this._productsService.getById(this.productId)
@@ -35,9 +33,12 @@ export class Edit {
             console.log(error);
       });
       this._productsService.getCategoryData()
-        .then(
-          data => {
-              this.category = data;
+       .subscribe(
+        data => {
+            this.category = data;
+        },
+        error => {
+            console.log(error);
       });
     });
 	}

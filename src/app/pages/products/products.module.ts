@@ -15,6 +15,8 @@ import { Create } from './components/create';
 import { Categories } from './components/categories';
 
 import { ProductsService } from './products.service';
+import { CategoriesService } from '../categories/categories.service';
+
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { ProductsService } from './products.service';
     Products
   ],
   providers: [
-    ProductsService
+    ProductsService,
+    CategoriesService
   ]
 })
 export class ProductsModule {
